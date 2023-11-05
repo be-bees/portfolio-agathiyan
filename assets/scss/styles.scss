@@ -279,6 +279,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
+          display: none;
           .pa-nav-close-btn {
             background-color: var(--white_a8);
             color: var(--white);
@@ -303,11 +304,14 @@
           transition: var(--transition-1); 
           &:is(:hover, :focus-visible) { color: var(--cinnamon-satin); }
         }
+        .pa-wrapper {
+          display: none;
+        }
       }
       .pa-nav-open-btn {
         font-size: 3.5rem;
         color: var(--gunmetal);
-        display: none;
+        margin-inline-start: auto;
       }
       .pa-overlay {
         position: fixed;
@@ -333,18 +337,48 @@
  * responsive for large than 575px screen
  */
 
-@media (min-width: 575px) {}
+@media (min-width: 575px) {
+  
+  .pa-container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
 
 /**
  * responsive for large than 768px screen
  */
 
- @media (min-width: 768px) {}
+ @media (min-width: 768px) {
+  .pa-container { max-width: 720px; }
+ }
 
    /**
  * responsive for large than 992px screen
  */
 @media (min-width: 992px) {
+    /**
+   * CUSTOM PROPERTY
+   */
+
+   :root {
+
+    /**
+     * spacing
+     */
+
+    --section-padding: 120px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .pa-container { max-width: 960px; }
    /**
    * HEADER
    */
@@ -388,12 +422,11 @@
         color: var(--charcoal);
         font-size: 1.8rem;
       }
-     }
-     .pa-nav-open-btn,
-     .pa-navbar .pa-navbar-top,
-     .pa-navbar .pa-wrapper,
-     .pa-overlay { display: none; }
-           
+
+     } 
+     .pa-nav-open-btn {
+      display: none;
+    }     
     }
    }
 }
@@ -401,7 +434,14 @@
  * responsive for large than 1200px screen
  */
 
- @media (min-width: 1200px) {}
+ @media (min-width: 1200px) {
+    /**
+   * REUSED STYLE
+   */
+
+   .pa-container,
+   .header { max-width: 1140px; }
+ }
 
  
 
@@ -409,7 +449,15 @@
  * responsive for large than 1400px screen
  */
 
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {
+  
+  /**
+   * REUSED STYLE
+   */
+
+   .pa-container,
+   .header { max-width: 1320px; }
+}
   
 
   

@@ -313,6 +313,7 @@ body.nav-active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  display: none;
 }
 .pa-header .pa-container .pa-navbar .pa-navbar-top .pa-nav-close-btn {
   background-color: var(--white_a8);
@@ -343,10 +344,13 @@ body.nav-active {
 .pa-header .pa-container .pa-navbar .pa-contact-link:is(:hover, :focus-visible) {
   color: var(--cinnamon-satin);
 }
+.pa-header .pa-container .pa-navbar .pa-wrapper {
+  display: none;
+}
 .pa-header .pa-container .pa-nav-open-btn {
   font-size: 3.5rem;
   color: var(--gunmetal);
-  display: none;
+  margin-inline-start: auto;
 }
 .pa-header .pa-container .pa-overlay {
   position: fixed;
@@ -368,13 +372,40 @@ body.nav-active {
 /**
 * responsive for large than 575px screen
 */
+@media (min-width: 575px) {
+  .pa-container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
 /**
  * responsive for large than 768px screen
  */
+@media (min-width: 768px) {
+  .pa-container {
+    max-width: 720px;
+  }
+}
 /**
 * responsive for large than 992px screen
 */
 @media (min-width: 992px) {
+  /**
+  * CUSTOM PROPERTY
+  */
+  :root {
+    /**
+     * spacing
+     */
+    --section-padding: 120px;
+  }
+  /**
+   * REUSED STYLE
+   */
+  .pa-container {
+    max-width: 960px;
+  }
   /**
   * HEADER
   */
@@ -418,16 +449,31 @@ body.nav-active {
     color: var(--charcoal);
     font-size: 1.8rem;
   }
-  .pa-header .pa-container .pa-nav-open-btn,
-  .pa-header .pa-container .pa-navbar .pa-navbar-top,
-  .pa-header .pa-container .pa-navbar .pa-wrapper,
-  .pa-header .pa-container .pa-overlay {
+  .pa-header .pa-container .pa-nav-open-btn {
     display: none;
   }
 }
 /**
  * responsive for large than 1200px screen
  */
+@media (min-width: 1200px) {
+  /**
+  * REUSED STYLE
+  */
+  .pa-container,
+  .header {
+    max-width: 1140px;
+  }
+}
 /**
  * responsive for large than 1400px screen
- *//*# sourceMappingURL=styles.css.map */
+ */
+@media (min-width: 1400px) {
+  /**
+   * REUSED STYLE
+   */
+  .pa-container,
+  .header {
+    max-width: 1320px;
+  }
+}/*# sourceMappingURL=styles.css.map */
