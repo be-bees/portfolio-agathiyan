@@ -138,22 +138,23 @@ body.nav-active {
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
-.container {
+.pa-container {
   padding-inline: 16px;
 }
 
-.social-list {
-  display: flex;
+.pa-social-list {
+  display: inline-flex;
+  margin-inline: auto;
   align-items: center;
   gap: 12px;
 }
 
-.social-link {
+.pa-social-link {
   font-size: 2rem;
   transition: var(--transition-1);
 }
 
-.social-link:is(:hover, :focus-visible) {
+.pa-social-link:is(:hover, :focus-visible) {
   transform: translateY(-3px);
 }
 
@@ -193,7 +194,7 @@ body.nav-active {
   font-size: var(--fs-4);
 }
 
-.btn {
+.pa-btn {
   color: var(--cinnamon-satin);
   font-size: var(--fs-6);
   font-weight: var(--fw-700);
@@ -206,12 +207,12 @@ body.nav-active {
   will-change: transform;
 }
 
-.btn:is(:hover, :focus-visible) {
+.pa-btn:is(:hover, :focus-visible) {
   transform: translateY(-4px);
 }
 
-.btn-primary,
-.btn-secondary:is(:hover, :focus-visible) {
+.pa-btn-primary,
+.pa-btn-secondary:is(:hover, :focus-visible) {
   background-color: var(--cinnamon-satin);
   color: var(--white);
 }
@@ -266,26 +267,27 @@ body.nav-active {
     transform: translateY(0);
   }
 }
-.header {
+.pa-header {
   position: absolute;
   top: 0;
   left: 0;
   background-color: var(--white);
   width: 100%;
   padding-block: 20px;
+  padding-inline: 20px;
   box-shadow: var(--shadow-1);
   z-index: 4;
 }
-.header.active {
+.pa-header.active {
   position: fixed;
   animation: slideIn 0.5s ease forwards;
 }
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.pa-header .pa-container {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 30px;
 }
-.header .container .navbar {
+.pa-header .pa-container .pa-navbar {
   position: fixed;
   top: 0;
   left: -300px;
@@ -296,23 +298,23 @@ body.nav-active {
   height: 100vh;
   padding: 30px;
   padding-block-end: 40px;
-  display: flex;
-  flex-direction: column;
+  display: inline-grid;
+  grid-template-columns: 1fr 150px;
   gap: 30px;
   z-index: 2;
   visibility: hidden;
   transition: var(--transition-3);
 }
-.header .container .navbar.active {
+.pa-header .pa-container .pa-navbar.active {
   visibility: visible;
   transform: translateX(300px);
 }
-.header .container .navbar .navbar-top {
+.pa-header .pa-container .pa-navbar .pa-navbar-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header .container .navbar .navbar-top .nav-close-btn {
+.pa-header .pa-container .pa-navbar .pa-navbar-top .pa-nav-close-btn {
   background-color: var(--white_a8);
   color: var(--white);
   font-size: 2rem;
@@ -320,30 +322,33 @@ body.nav-active {
   border-radius: var(--radius-circle);
   transition: var(--transition-1);
 }
-.header .container .navbar .navbar-top .nav-close-btn ion-icon {
+.pa-header .pa-container .pa-navbar .pa-navbar-top .pa-nav-close-btn ion-icon {
   --ionicon-stroke-width: 50px;
 }
-.header .container .navbar .navbar-top .nav-close-btn:is(:hover, :focus-visible) {
+.pa-header .pa-container .pa-navbar .pa-navbar-top .pa-nav-close-btn:is(:hover, :focus-visible) {
   background-color: var(--white_a12);
 }
-.header .container .navbar .navbar-list {
+.pa-header .pa-container .pa-navbar .pa-navbar-list {
+  display: flex;
+  margin-inline: auto;
   margin-block-end: auto;
 }
-.header .container .navbar .navbar-list .navbar-link {
+.pa-header .pa-container .pa-navbar .pa-navbar-list .pa-navbar-link {
   font-weight: var(--fw-700);
   padding-block: 6px;
 }
-.header .container .navbar .contact-link {
+.pa-header .pa-container .pa-navbar .pa-contact-link {
   transition: var(--transition-1);
 }
-.header .container .navbar .contact-link:is(:hover, :focus-visible) {
+.pa-header .pa-container .pa-navbar .pa-contact-link:is(:hover, :focus-visible) {
   color: var(--cinnamon-satin);
 }
-.header .container .nav-open-btn {
+.pa-header .pa-container .pa-nav-open-btn {
   font-size: 3.5rem;
   color: var(--gunmetal);
+  display: none;
 }
-.header .container .overlay {
+.pa-header .pa-container .pa-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -353,8 +358,9 @@ body.nav-active {
   pointer-events: none;
   opacity: 0;
   transition: var(--transition-1);
+  display: none;
 }
-.header .container .overlay.active {
+.pa-header .pa-container .pa-overlay.active {
   pointer-events: all;
   opacity: 0.8;
 }
@@ -372,7 +378,7 @@ body.nav-active {
   /**
   * HEADER
   */
-  .header {
+  .pa-header {
     top: 45px;
     max-width: 960px;
     left: 50%;
@@ -380,42 +386,42 @@ body.nav-active {
     padding-inline: 16px;
     border-radius: var(--radius-8);
   }
-  .header.active {
+  .pa-header.active {
     top: 0;
     left: 0;
     max-width: unset;
     border-radius: 0;
   }
-  .header .container .navbar {
+  .pa-header .pa-container .pa-navbar {
+    all: unset;
+    display: inline-grid;
+    grid-template-columns: 1fr 150px;
+  }
+  .pa-header .pa-container .pa-navbar.active {
     all: unset;
     display: flex;
     flex-grow: 1;
   }
-  .header .container .navbar.active {
-    all: unset;
-    display: flex;
-    flex-grow: 1;
-  }
-  .header .container .navbar .navbar-list {
+  .pa-header .pa-container .pa-navbar .pa-navbar-list {
     display: flex;
     gap: 36px;
     margin-inline: auto;
   }
-  .header .container .navbar .navbar-list .navbar-link {
+  .pa-header .pa-container .pa-navbar .pa-navbar-list .pa-navbar-link {
     color: var(--charcoal);
     transition: var(--transition-1);
   }
-  .header .container .navbar .navbar-list .navbar-link:is(:hover, :focus-visible) {
+  .pa-header .pa-container .pa-navbar .pa-navbar-list .pa-navbar-link:is(:hover, :focus-visible) {
     color: var(--cinnamon-satin);
   }
-  .header .container .navbar .social-link {
+  .pa-header .pa-container .pa-navbar .social-link {
     color: var(--charcoal);
     font-size: 1.8rem;
   }
-  .header .container .nav-open-btn,
-  .header .container .navbar .navbar-top,
-  .header .container .navbar .wrapper,
-  .header .container .overlay {
+  .pa-header .pa-container .pa-nav-open-btn,
+  .pa-header .pa-container .pa-navbar .pa-navbar-top,
+  .pa-header .pa-container .pa-navbar .pa-wrapper,
+  .pa-header .pa-container .pa-overlay {
     display: none;
   }
 }
