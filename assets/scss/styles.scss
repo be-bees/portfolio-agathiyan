@@ -322,10 +322,22 @@
     }
   }
   
-  /**
- * responsive for large than 992px screen
+
+ /**
+ * responsive for large than 575px screen
  */
 
+@media (min-width: 575px) {}
+
+/**
+ * responsive for large than 768px screen
+ */
+
+ @media (min-width: 768px) {}
+
+   /**
+ * responsive for large than 992px screen
+ */
 @media (min-width: 992px) {
    /**
    * HEADER
@@ -379,6 +391,19 @@
     }
    }
 }
+/**
+ * responsive for large than 1200px screen
+ */
+
+ @media (min-width: 1200px) {}
+
+ 
+
+/**
+ * responsive for large than 1400px screen
+ */
+
+@media (min-width: 1400px) {}
   
 
   
