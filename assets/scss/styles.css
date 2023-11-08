@@ -274,6 +274,11 @@ body.pa-nav-active {
   box-shadow: var(--shadow-1);
   z-index: 4;
 }
+.pa-header .pa-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .pa-header.active {
   position: fixed;
   animation: slideIn 0.5s ease forwards;
@@ -309,7 +314,6 @@ body.pa-nav-active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  display: none;
 }
 .pa-header .pa-container .pa-navbar .pa-navbar-top .pa-nav-close-btn {
   background-color: var(--white_a8);
@@ -333,15 +337,13 @@ body.pa-nav-active {
 .pa-header .pa-container .pa-navbar .pa-navbar-list .pa-navbar-link {
   font-weight: var(--fw-700);
   padding-block: 6px;
+  cursor: pointer;
 }
 .pa-header .pa-container .pa-navbar .pa-contact-link {
   transition: var(--transition-1);
 }
 .pa-header .pa-container .pa-navbar .pa-contact-link:is(:hover, :focus-visible) {
   color: var(--cinnamon-satin);
-}
-.pa-header .pa-container .pa-navbar .pa-wrapper {
-  display: none;
 }
 .pa-header .pa-container .pa-nav-open-btn {
   font-size: 3.5rem;
@@ -661,6 +663,9 @@ body.pa-nav-active {
     display: flex;
     flex-grow: 1;
   }
+  .pa-header .pa-container .pa-navbar .pa-navbar-top {
+    display: none;
+  }
   .pa-header .pa-container .pa-navbar .pa-navbar-list {
     display: flex;
     gap: 36px;
@@ -677,7 +682,13 @@ body.pa-nav-active {
     color: var(--charcoal);
     font-size: 1.8rem;
   }
+  .pa-header .pa-container .pa-navbar .pa-wrapper {
+    display: none;
+  }
   .pa-header .pa-container .pa-nav-open-btn {
+    display: none;
+  }
+  .pa-header .pa-container .pa-overlay {
     display: none;
   }
   .pa-hero {

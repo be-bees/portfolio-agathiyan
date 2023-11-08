@@ -70,3 +70,12 @@ for (let i = 0, len = revealDelayElements.length; i < len; i++) {
 
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
+const headerActions = document.getElementsByClassName('pa-navbar-link');
+const headerAction = (event) => {
+  let goto = document.querySelector(`[aria-label=${event.target.innerText.toLowerCase()}]`)
+    $('html,body').animate({
+        scrollTop: $(goto).offset().top},
+        'slow');
+}
+addEventOnElements(headerActions, "click", headerAction);
+

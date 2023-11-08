@@ -244,6 +244,11 @@
     padding-inline: 20px;
     box-shadow: var(--shadow-1);
     z-index: 4;
+    .pa-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
     &.active {
       position: fixed;
       animation: slideIn 0.5s ease forwards;
@@ -277,7 +282,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          display: none;
+          // display: none;
           .pa-nav-close-btn {
             background-color: var(--white_a8);
             color: var(--white);
@@ -296,15 +301,14 @@
           .pa-navbar-link {
             font-weight: var(--fw-700);
             padding-block: 6px;
+            cursor: pointer;
           }
         }
         .pa-contact-link { 
           transition: var(--transition-1); 
           &:is(:hover, :focus-visible) { color: var(--cinnamon-satin); }
         }
-        .pa-wrapper {
-          display: none;
-        }
+        
       }
       .pa-nav-open-btn {
         font-size: 3.5rem;
@@ -679,6 +683,9 @@
         display: flex;
         flex-grow: 1;
       }
+      .pa-navbar-top {
+        display: none;
+      }
       .pa-navbar-list {
         display: flex;
         gap: 36px;
@@ -693,11 +700,16 @@
         color: var(--charcoal);
         font-size: 1.8rem;
       }
-
+      .pa-wrapper {
+        display: none;
+      }
      } 
      .pa-nav-open-btn {
       display: none;
-    }     
+    }    
+    .pa-overlay {
+      display: none;
+    } 
     }
    }
    .pa-hero { 
