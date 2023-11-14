@@ -522,7 +522,7 @@ body.pa-nav-active {
 .pa-contact .pa-contact-card .pa-input-field::placeholder {
   color: var(--manatee);
 }
-.pa-contact .pa-contact-card .pa-input-fieldtextarea {
+.pa-contact .pa-contact-card .pa-input-field.pa-textarea {
   min-height: 120px;
   height: 120px;
   max-height: 240px;
