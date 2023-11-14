@@ -204,6 +204,7 @@ body.pa-nav-active {
   border-radius: var(--radius-pill);
   transition: var(--transition-1);
   will-change: transform;
+  cursor: pointer;
 }
 
 .pa-btn:is(:hover, :focus-visible) {
@@ -299,8 +300,8 @@ body.pa-nav-active {
   height: 100vh;
   padding: 30px;
   padding-block-end: 40px;
-  display: inline-grid;
-  grid-template-columns: 1fr 150px;
+  display: flex;
+  flex-direction: column;
   gap: 30px;
   z-index: 2;
   visibility: hidden;
@@ -330,8 +331,6 @@ body.pa-nav-active {
   background-color: var(--white_a12);
 }
 .pa-header .pa-container .pa-navbar .pa-navbar-list {
-  display: flex;
-  margin-inline: auto;
   margin-block-end: auto;
 }
 .pa-header .pa-container .pa-navbar .pa-navbar-list .pa-navbar-link {

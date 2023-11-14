@@ -26,6 +26,10 @@
   <link rel="preload" as="image" href="./assets/images/Blog.svg">
   <!-- jquery  -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- toaster  -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
 <body>
    
@@ -71,9 +75,9 @@
         </ul>
 
         <div class="pa-wrapper">
-          <a href="mailto:info@email.com" class="pa-contact-link">info@email.com</a>
+          <a href="mailto:agathiyannv@email.com" class="pa-contact-link">agathiyannv@email.com</a>
 
-          <a href="tel:001234567890" class="pa-contact-link">00 (123) 456 78 90</a>
+          <a href="tel:918610445677" class="pa-contact-link">(91) 86104 45677</a>
         </div>
 
         <ul class="pa-social-list">
@@ -152,7 +156,8 @@
             <div class="pa-btn-wrapper" data-reveal="top" data-reveal-delay="1s">
               <a href="#" class="pa-btn pa-btn-primary">See My Works</a>
 
-              <a href="#" class="pa-btn pa-btn-secondary">Contact Me</a>
+              <span class="pa-btn pa-btn-secondary" onclick="headerAction(event)">Contact Me</span>
+              <span class="pa-btn pa-btn-secondary" onclick="resumeAction(event)">Resume</span>
             </div>
 
           </div>
@@ -338,7 +343,7 @@ the RESTful API
               </p>
             </div>
 
-            <a href="#" class="pa-btn pa-btn-secondary">See All Projects</a>
+            <a href="https://github.com/be-bees" target="_blank" class="pa-btn pa-btn-secondary">See All Projects</a>
 
           </div>
 
@@ -357,7 +362,7 @@ the RESTful API
                     Copy version of dating app for dogs created using HTML, CSS and Bootstrap
                   </p>
 
-                  <a href="#" class="pa-btn-text" style="color: #a07cc5">
+                  <a href="https://github.com/be-bees/doglove" target="_blank" class="pa-btn-text" style="color: #a07cc5">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -386,7 +391,7 @@ the RESTful API
                     Portfolio of myself. There you can see my skills, Education. etc..
                   </p>
 
-                  <a href="#" class="pa-btn-text" style="color: #3f78e0">
+                  <a href="https://github.com/be-bees/agathiyan" target="_blank" class="pa-btn-text" style="color: #3f78e0">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -415,7 +420,7 @@ the RESTful API
                     It's a Small type of dice game created using HTML, CSS and JavaScript
                   </p>
 
-                  <a href="#" class="pa-btn-text" style="color: #7cb798">
+                  <a href="https://github.com/be-bees/dicegame" target="_blank" class="pa-btn-text" style="color: #7cb798">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -444,7 +449,7 @@ the RESTful API
                     Webpage of my profile is created using only HTML.
                   </p>
 
-                  <a href="#" class="pa-btn-text" style="color: #d16b86">
+                  <a href="https://github.com/be-bees/resume" target="_blank" class="pa-btn-text" style="color: #d16b86">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -493,15 +498,15 @@ the RESTful API
 
             </div>
 
-            <form action="" class="pa-contact-form" data-reveal="right">
+            <form class="pa-contact-form" data-reveal="right" id="emailForm" action="mailto:agathiyannv@gmail.com" method="GET" target="_blank">
 
               <div class="pa-input-wrapper">
-                <input type="text" name="name" placeholder="Name *" required class="pa-input-field" autocomplete="off">
+                <input type="text" name="name" placeholder="Name *" id="name" required class="pa-input-field" autocomplete="off">
 
-                <input type="email" name="email_address" placeholder="Email *" required class="pa-input-field" autocomplete="off">
+                <input type="email" name="email_address" placeholder="Email *" id="email" required class="pa-input-field" autocomplete="off">
               </div>
 
-              <textarea name="message" placeholder="Message *" required class="pa-input-field" autocomplete="off"></textarea>
+              <textarea name="message" placeholder="Message *" required class="pa-input-field" id="message" autocomplete="off"></textarea>
 
               <button type="submit" class="pa-btn pa-btn-secondary">Send message</button>
 

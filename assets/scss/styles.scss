@@ -186,6 +186,7 @@
     border-radius: var(--radius-pill);
     transition: var(--transition-1);
     will-change: transform;
+    cursor: pointer;
   }
   
   .pa-btn:is(:hover, :focus-visible) { transform: translateY(-4px); }
@@ -268,8 +269,8 @@
         height: 100vh;
         padding: 30px;
         padding-block-end: 40px;
-        display: inline-grid;
-        grid-template-columns: 1fr 150px;
+        display: flex;
+        flex-direction: column;
         gap: 30px;
         z-index: 2;
         visibility: hidden;
@@ -295,8 +296,8 @@
           }
         }
         .pa-navbar-list { 
-          display: flex;
-          margin-inline: auto;
+          // display: flex;
+          // margin-inline: auto;
           margin-block-end: auto; 
           .pa-navbar-link {
             font-weight: var(--fw-700);
