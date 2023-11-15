@@ -394,7 +394,10 @@ body.pa-nav-active {
   position: absolute;
   bottom: 10%;
   right: 2%;
+  max-width: 100%;
   filter: drop-shadow(var(--shadow-2));
+  width: 30%;
+  border-radius: 8px;
 }
 .pa-hero .pa-container .pa-hero-content {
   text-align: center;
