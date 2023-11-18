@@ -112,3 +112,24 @@ $('#emailForm').on('submit', (e)=>{
 function resumeAction(event) {
   window.open('https://drive.google.com/file/d/1QART9eAsrgRqwyU4qjRCy-JIXJ7hDPgn/view?usp=sharing','_blank')
 }
+
+let button = document.getElementsByClassName("pa-theme-button");
+
+let toggled = false;
+let theme = window.localStorage.getItem('data-theme');
+if(theme) document.documentElement.setAttribute('data-theme', theme);
+function themeChange(event) {
+  if (toggled) {
+    event.target.style.top = "0%";
+    toggled = false;
+    document.documentElement.setAttribute('data-theme', 'dark');
+    window.localStorage.setItem('data-theme', 'dark');
+    return;
+  }
+  toggled = true;
+  event.target.style.top = "10%";
+  document.documentElement.setAttribute('data-theme', 'light');
+  window.localStorage.setItem('data-theme', 'light');
+}
+addEventOnElements(button, "click", themeChange);
+button[0].style.top = document.documentElement.dataset.theme === 'dark' ? '0%' : '10%';
