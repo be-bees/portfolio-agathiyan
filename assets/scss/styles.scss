@@ -327,7 +327,6 @@
         pointer-events: none;
         opacity: 0;
         transition: var(--transition-1);
-        display: none;
         &.active {
           pointer-events: all;
           opacity: 0.8;

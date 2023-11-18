@@ -360,7 +360,6 @@ body.pa-nav-active {
   pointer-events: none;
   opacity: 0;
   transition: var(--transition-1);
-  display: none;
 }
 .pa-header .pa-container .pa-overlay.active {
   pointer-events: all;

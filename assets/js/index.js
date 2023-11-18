@@ -72,7 +72,7 @@ window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 const headerActions = document.getElementsByClassName('pa-navbar-link');
 const headerAction = (event) => {
-  toggleNavbar()
+  if(document.querySelector('.pa-overlay.active')) toggleNavbar();
   let label = event.target.innerText.toLowerCase();
   if(label === 'contact me') label = 'contact';
   let goto = document.querySelector(`[aria-label=${label}]`)
