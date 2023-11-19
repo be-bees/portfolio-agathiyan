@@ -693,7 +693,7 @@ body.pa-nav-active {
     color: var(--charcoal);
     font-size: 1.8rem;
   }
-  .pa-header .pa-container .pa-navbar .pa-wrapper {
+  .pa-header .pa-container .pa-navbar .pa-wrapper, .pa-header .pa-container .pa-navbar .pa-theme-change-txt {
     display: none;
   }
   .pa-header .pa-container .pa-nav-open-btn {
@@ -812,7 +812,11 @@ body.pa-nav-active {
     gap: 60px;
   }
 }
-.container {
+.pa-theme-container-body {
+  display: inline-flex;
+  align-items: center;
+}
+.pa-theme-container-body .pa-theme-container {
   width: 30px;
   height: 40px;
   display: flex;
@@ -822,8 +826,7 @@ body.pa-nav-active {
   flex-direction: column;
   margin-left: auto;
 }
-
-.board {
+.pa-theme-container-body .pa-theme-container .pa-theme-board {
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -831,16 +834,14 @@ body.pa-nav-active {
   justify-content: center;
   align-items: center;
 }
-
-.switch {
+.pa-theme-container-body .pa-theme-container .pa-theme-board .pa-theme-switch {
   width: 90%;
   height: 100%;
   border-radius: 7px;
   border: 2px solid #e0e0e0;
   background-color: var(--cinnamon-satin);
 }
-
-.pa-theme-button {
+.pa-theme-container-body .pa-theme-container .pa-theme-board .pa-theme-switch .pa-theme-button {
   width: 100%;
   height: 90%;
   background-color: white;
@@ -848,6 +849,9 @@ body.pa-nav-active {
   position: relative;
   transition: all 0.05s;
   cursor: pointer;
+}
+.pa-theme-container-body .pa-theme-change-txt {
+  margin-inline-start: 10px;
 }
 
 @media only screen and (max-height: 200px) {
