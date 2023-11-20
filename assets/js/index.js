@@ -290,6 +290,7 @@ document.body.addEventListener(
     localStorage.setItem("magicAlertPopup", "shown");
   }
   function closeMagicAlert() {
+    document.body.style.overflow = '';
     $("#once-popup").delay(1500).fadeOut();
   }
   let popupPositionTarget = '';
