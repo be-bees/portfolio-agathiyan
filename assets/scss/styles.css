@@ -520,6 +520,13 @@ body.pa-nav-active {
 .pa-project .pa-container .pa-grid-list .pa-project-card .pa-card-title {
   margin-block: 16px;
 }
+.pa-project .pa-container .pa-grid-list .pa-project-card .pa-card-title.project-name {
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+.pa-project .pa-container .pa-grid-list .pa-project-card .pa-card-title.project-name:is(:hover, :focus-visible) {
+  transform: translateY(-2px);
+}
 .pa-project .pa-container .pa-grid-list .pa-project-card .pa-card-text {
   margin-block-end: 20px;
 }

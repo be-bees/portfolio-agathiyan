@@ -361,3 +361,14 @@ document.body.addEventListener(
   //     $('.toggleButton').trigger('click')
   //   }, 1000);
   // } 
+  let projectView = document.getElementsByClassName('project-name');
+  function viewProject(event) {
+    let obj = {
+      'Dog love':'https://be-bees.github.io/doglove/',
+      'Resume V2.0':'https://be-bees.github.io/agathiyan/',
+      'Simple Dice Game':'https://be-bees.github.io/dicegame/',
+      'Resume V1.0':'https://be-bees.github.io/resume/'
+    };
+    window.open(obj[event?.target?.innerText],'_blank');
+  }
+  addEventOnElements(projectView, "click", viewProject);

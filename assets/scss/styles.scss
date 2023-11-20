@@ -504,6 +504,11 @@
 
         .pa-card-title {
           margin-block: 16px;
+          &.project-name {
+            cursor: pointer;
+            transition: var(--transition-1);
+            &:is(:hover, :focus-visible) { transform: translateY(-2px); }
+          }
         }
 
         .pa-card-text {
