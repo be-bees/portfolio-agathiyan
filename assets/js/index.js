@@ -144,3 +144,119 @@ function setThemeRelatedProp() {
   } 
 }
 setThemeRelatedProp();
+
+// Event listener for the button click
+let toggleButton = document.getElementsByClassName('toggleButton')
+function toggleMagic() {
+    let getCanvas = document.querySelector('canvas');
+    
+    if (getCanvas.style.display === 'none') {
+      getCanvas.style.display = ''
+    } else {
+      getCanvas.style.display = 'none'
+    }
+}
+addEventOnElements(toggleButton, "click", toggleMagic);
+let toggleMoreButton = document.getElementsByClassName('pa-more-action-toggle-icon');
+function toggleMoreAction(event) {
+  let getToggleIcon = document.querySelector('.pa-more-action-toggle');
+    
+  if (getToggleIcon.style.display === 'none') {
+    getToggleIcon.style.display = 'block'
+    if(document.getElementsByClassName('pa-overlay-container').length) {
+      document.body.style.overflow = 'hidden';
+      document.getElementsByClassName('pa-overlay-container')[0].append(getToggleIcon)
+    } else {
+      document.body.style.overflow = 'hidden';
+      let div = document.createElement('div')
+      div.classList.add('pa-overlay-container');
+      div.append(getToggleIcon)
+      document.body.appendChild(div);
+    }
+    dropdownLikePosition(event)
+  } else {
+    // if(document.getElementsByClassName('pa-overlay-container').length) document.getElementsByClassName('pa-overlay-container')[0].remove();
+    document.body.style.overflow = '';
+    getToggleIcon.style.display = 'none'
+  }
+}
+toggleMoreAction()
+addEventOnElements(toggleMoreButton, "click", toggleMoreAction);
+let popupPositionEvent = '';
+let resizeObserver = '';
+function dropdownLikePosition(event) {
+
+  let openedPopupComponent = document.querySelector('.pa-more-action-toggle');
+  popupPositionEvent = event;
+  let currentEventTarget = popupPositionEvent['target'];
+  const windowHeight = window.innerHeight;
+  let clickedPosition, clickedBtnWidth, clickedBtnHeight;
+  if (currentEventTarget.classList.contains('clickedbtnWidth')) {
+    clickedPosition = currentEventTarget.getBoundingClientRect();
+    clickedBtnWidth = currentEventTarget.offsetWidth;
+    clickedBtnHeight = currentEventTarget.offsetWidth;
+  } else {
+    clickedPosition = currentEventTarget.closest(".clickedBtnWidth").getBoundingClientRect();
+    clickedBtnWidth = currentEventTarget.closest(".clickedBtnWidth").offsetWidth;
+    clickedBtnHeight = currentEventTarget.closest(".clickedBtnWidth").offsetHeight;
+  }
+  let xPosition = clickedPosition.left;
+  let yPosition = clickedPosition.top;
+  var openedPopupWidth = openedPopupComponent.offsetWidth;
+  let openedPopupHeight = openedPopupComponent.offsetHeight;
+
+  let position = {
+    top: undefined,
+    left: undefined
+  };
+  // choose left are right
+  if ((window.innerWidth - xPosition) - (openedPopupWidth + clickedBtnWidth) > 0) {
+    position['left'] = Math.floor(xPosition);
+  } else {
+    position['left'] = Math.floor(xPosition - openedPopupWidth);
+  }
+  // choose top or bottom or center
+
+  if (windowHeight - (yPosition + openedPopupHeight + clickedBtnHeight) > 0) {
+    position['top'] = Math.floor(yPosition + clickedBtnHeight);
+  }
+  else {
+    if (((yPosition) > openedPopupHeight)) {
+      // find hidden area of popup height and add with ct
+      position['top'] = Math.floor((yPosition - openedPopupHeight));
+    }
+    else {
+      position['top'] = Math.floor((yPosition - 25) - ((yPosition + openedPopupHeight) - windowHeight));
+    }
+  }
+  // // height set to unset -> to make content based height for balloon popup
+  // resizeObserver = new ResizeObserver(entries => {
+  //   for (const entry of entries) {
+  //     // Check for width change
+  //     if ((popupLastHeight !== entry.target['offsetHeight'] && entry.target['offsetHeight'] !== 0) || (popupLastWidth !== entry.target['offsetWidth']) && entry.target['offsetWidth'] !== 0) {
+  //       dropdownLikePosition(popupPositionEvent);
+  //       resizeObserver.unobserve(popupSize);
+  //     }
+  //   }
+  // });
+  // // Select the element to observe
+  // popupSize = $(openedPopupComponent)[0] || undefined;
+  // popupLastHeight = popupSize?.['offsetHeight'];
+  // popupLastWidth = popupSize?.['offsetWidth'];
+  // // Start observing the element
+  // if (popupSize) {
+  //   resizeObserver.observe(popupSize);
+  // }
+  $(openedPopupComponent).css({ left: position.left, top: position.top });
+
+}
+document.body.addEventListener(
+  'click', (event)=>{
+    if(event.target.classList.contains('pa-more-action-toggle-icon') || $(event.target).parents('.pa-more-action-toggle').length) {
+      return
+    } else {
+      document.body.style.overflow = '';
+      document.querySelector('.pa-more-action-toggle').style.display = 'none'
+    }
+  }
+)
