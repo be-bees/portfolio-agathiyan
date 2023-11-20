@@ -157,6 +157,9 @@ function toggleMagic() {
     }
 }
 addEventOnElements(toggleButton, "click", toggleMagic);
+setTimeout(() => {
+  $('.toggleButton').trigger('click')
+}, 1000);
 let toggleMoreButton = document.getElementsByClassName('pa-more-action-toggle-icon');
 function toggleMoreAction(event) {
   let getToggleIcon = document.querySelector('.pa-more-action-toggle');
@@ -260,3 +263,101 @@ document.body.addEventListener(
     }
   }
 )
+
+  if (localStorage.getItem("magicAlertPopup") !== "shown") {
+    let target;
+    let openedPopup = document.getElementById("once-popup");
+    if(window.innerWidth > 992) {
+      target = document.querySelector('.pa-more-action-toggle-icon');
+    } else {
+      target = document.getElementsByClassName("pa-nav-open-btn")[0];
+    }
+    setTimeout(() => {
+      $("#once-popup").fadeIn();
+      if(document.getElementsByClassName('pa-overlay-container').length) {
+        document.body.style.overflow = 'hidden';
+        document.getElementsByClassName('pa-overlay-container')[0].append(openedPopup)
+      } else {
+        document.body.style.overflow = 'hidden';
+        let div = document.createElement('div')
+        div.classList.add('pa-overlay-container');
+        div.append(openedPopup)
+        document.body.appendChild(div);
+      }
+      callAlertPosition(target, openedPopup);
+      closeMagicAlert();
+    }, 1000);
+    localStorage.setItem("magicAlertPopup", "shown");
+  }
+  function closeMagicAlert() {
+    $("#once-popup").delay(1500).fadeOut();
+  }
+  let popupPositionTarget = '';
+  function callAlertPosition(target, openedPopup) {
+
+    let openedPopupComponent = openedPopup;
+   let popupPositionTarget = target;
+    let currentEventTarget = popupPositionTarget;
+    const windowHeight = window.innerHeight;
+
+    let clickedPosition, clickedBtnWidth, clickedBtnHeight;
+      clickedPosition = currentEventTarget.getBoundingClientRect();
+      clickedBtnWidth = currentEventTarget.offsetWidth;
+      clickedBtnHeight = currentEventTarget.offsetWidth;
+
+    let xPosition = clickedPosition.left;
+    let yPosition = clickedPosition.top;
+    var openedPopupWidth = openedPopupComponent.offsetWidth;
+    let openedPopupHeight = openedPopupComponent.offsetHeight;
+  
+    let position = {
+      top: undefined,
+      left: undefined
+    };
+    // choose left are right
+    if ((window.innerWidth - xPosition) - (openedPopupWidth + clickedBtnWidth) > 0) {
+      position['left'] = Math.floor(xPosition);
+    } else {
+      position['left'] = Math.floor(xPosition - openedPopupWidth);
+    }
+    // choose top or bottom or center
+  
+    if (windowHeight - (yPosition + openedPopupHeight + clickedBtnHeight) > 0) {
+      position['top'] = Math.floor(yPosition + clickedBtnHeight);
+    }
+    else {
+      if (((yPosition) > openedPopupHeight)) {
+        // find hidden area of popup height and add with ct
+        position['top'] = Math.floor((yPosition - openedPopupHeight));
+      }
+      else {
+        position['top'] = Math.floor((yPosition - 25) - ((yPosition + openedPopupHeight) - windowHeight));
+      }
+    }
+    // // height set to unset -> to make content based height for balloon popup
+    // resizeObserver = new ResizeObserver(entries => {
+    //   for (const entry of entries) {
+    //     // Check for width change
+    //     if ((popupLastHeight !== entry.target['offsetHeight'] && entry.target['offsetHeight'] !== 0) || (popupLastWidth !== entry.target['offsetWidth']) && entry.target['offsetWidth'] !== 0) {
+    //       dropdownLikePosition(popupPositionTarget);
+    //       resizeObserver.unobserve(popupSize);
+    //     }
+    //   }
+    // });
+    // // Select the element to observe
+    // popupSize = $(openedPopupComponent)[0] || undefined;
+    // popupLastHeight = popupSize?.['offsetHeight'];
+    // popupLastWidth = popupSize?.['offsetWidth'];
+    // // Start observing the element
+    // if (popupSize) {
+    //   resizeObserver.observe(popupSize);
+    // }
+    $(openedPopupComponent).css({ left: position.left, top: position.top });
+  
+  }
+
+  // if (localStorage.getItem("magicShow") !== false) {
+  //   setTimeout(() => {
+  //     $('.toggleButton').trigger('click')
+  //   }, 1000);
+  // } 

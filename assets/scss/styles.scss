@@ -286,6 +286,12 @@
         &.active {
           visibility: visible;
           transform: translateX(300px);
+          .pa-more-action-body {
+            margin: 0;
+            .pa-more-action-toggle-icon {
+              color: var(--white);
+            }
+          } 
         }
         .pa-navbar-top {
           display: flex;
@@ -1110,14 +1116,33 @@
   background-color: #fcebeb;
 }
 
-
-
-  
-  
-  
-  
-
-  
-  
-  
-
+#once-popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.65);
+  text-align: center;
+  width: 20%;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cinnamon-satin);
+  color: var(--white);
+  border-radius: 10px 2px;
+  z-index: 10000;
+}
+#once-popup .inner {
+  width: 100%;
+  max-width: 100%;
+  font-size: 0.8rem;
+  }
+#once-popup #popup-close {
+  float: right;
+  font-size: 30px;
+  line-height: 10px;
+  padding: 5px;
+  cursor: pointer;
+  }
