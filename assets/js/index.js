@@ -149,7 +149,7 @@ setThemeRelatedProp();
 let toggleButton = document.getElementsByClassName('toggleButton')
 function toggleMagic() {
     let getCanvas = document.querySelector('canvas');
-    
+    // if(!getCanvas) return;
     if (getCanvas.style.display === 'none') {
       getCanvas.style.display = ''
     } else {
@@ -205,7 +205,7 @@ function dropdownLikePosition(event) {
   }
   let xPosition = clickedPosition.left;
   let yPosition = clickedPosition.top;
-  var openedPopupWidth = openedPopupComponent.offsetWidth;
+  let openedPopupWidth = openedPopupComponent.offsetWidth;
   let openedPopupHeight = openedPopupComponent.offsetHeight;
 
   let position = {
@@ -255,11 +255,15 @@ function dropdownLikePosition(event) {
 }
 document.body.addEventListener(
   'click', (event)=>{
-    if(event.target.classList.contains('pa-more-action-toggle-icon') || $(event.target).parents('.pa-more-action-toggle').length) {
-      return
+    if(!(event.target.classList.contains('pa-more-action-toggle-icon') || $(event.target).parents('.pa-more-action-toggle').length)) {
+      if(document.querySelector('.pa-more-action-toggle').style.display !== 'none') {
+        document.body.style.overflow = '';
+        document.querySelector('.pa-more-action-toggle').style.display = 'none'
+        return;
+      }
+     return;
     } else {
-      document.body.style.overflow = '';
-      document.querySelector('.pa-more-action-toggle').style.display = 'none'
+      return;
     }
   }
 )
@@ -308,7 +312,7 @@ document.body.addEventListener(
 
     let xPosition = clickedPosition.left;
     let yPosition = clickedPosition.top;
-    var openedPopupWidth = openedPopupComponent.offsetWidth;
+    let openedPopupWidth = openedPopupComponent.offsetWidth;
     let openedPopupHeight = openedPopupComponent.offsetHeight;
   
     let position = {
@@ -362,14 +366,52 @@ document.body.addEventListener(
   //     $('.toggleButton').trigger('click')
   //   }, 1000);
   // } 
-  let projectView = document.getElementsByClassName('project-name');
+  let projectObjInfo = {
+    'Dog love':'https://be-bees.github.io/doglove/',
+    'Resume V2.0':'https://be-bees.github.io/agathiyan/',
+    'Simple Dice Game':'https://be-bees.github.io/dicegame/',
+    'Resume V1.0':'https://be-bees.github.io/resume/'
+  };
+  let projectView = document.getElementsByClassName('trigger');
   function viewProject(event) {
-    let obj = {
-      'Dog love':'https://be-bees.github.io/doglove/',
-      'Resume V2.0':'https://be-bees.github.io/agathiyan/',
-      'Simple Dice Game':'https://be-bees.github.io/dicegame/',
-      'Resume V1.0':'https://be-bees.github.io/resume/'
-    };
-    window.open(obj[event?.target?.innerText],'_blank');
+
+    window.open(projectObjInfo[event?.target?.previousElementSibling?.innerText],'_blank');
   }
   addEventOnElements(projectView, "click", viewProject);
+
+  let modal = document.querySelector(".modal");
+let trigger = document.getElementsByClassName("project-name");
+let closeButton = document.querySelector(".close-button");
+
+function toggleModal(event) {
+  if(!(window.innerWidth > 992)) {
+   return;
+  } else {
+  event.stopPropagation();
+  let iframe = document.querySelector("iframe");
+  if (event.target.classList.contains('modal') || event.target.classList.contains('close-button')) {
+    $('.iframe-loader').hide();
+    document.body.style.overflow = '';
+    iframe.src = '';
+    modal.classList.toggle("show-modal");
+    return;
+  } else if (event.target.classList.contains('project-name')) {
+    modal.classList.toggle("show-modal");
+    $('.iframe-loader').show();
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      iframe.src = projectObjInfo[event?.target?.innerText];
+      $('.iframe-loader').hide();
+      return;
+    }, 500);
+  } else {
+    $('.iframe-loader').hide();
+    document.body.style.overflow = '';
+    return;
+  }
+}
+}
+
+addEventOnElements(trigger, "click", toggleModal);
+addEventOnElements(closeButton, "click", toggleModal);
+window.addEventListener("click", toggleModal);

@@ -123,16 +123,18 @@
   }
   
   body.pa-nav-active { overflow: hidden; }
+  .pa-custom-scroll {
+    &::-webkit-scrollbar { width: 10px; }
   
-  ::-webkit-scrollbar { width: 10px; }
-  
-  ::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
-  
-  ::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
-  
-  ::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
-  
-  
+    &::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+    
+    &::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+    
+    &::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+    
+    
+  }
+
   .pa-overlay-container {
     pointer-events: none;
     inset: 0;
@@ -288,6 +290,8 @@
           transform: translateX(300px);
           .pa-more-action-body {
             margin: 0;
+            position: absolute;
+            top: 78%;
             .pa-more-action-toggle-icon {
               color: var(--white);
             }
@@ -504,10 +508,22 @@
 
         .pa-card-title {
           margin-block: 16px;
-          &.project-name {
+          display: inline-flex;
+          align-items: center;
+          .project-name {
             cursor: pointer;
             transition: var(--transition-1);
             &:is(:hover, :focus-visible) { transform: translateY(-2px); }
+          }
+          .trigger {
+            font-size: 20px;
+            transition: var(--transition-1);
+            margin-inline-start: 10px;
+            color: var(--charcoal);
+            &:is(:hover, :focus-visible) { 
+              transform: translate(2px, -2px); 
+              color: var(--cinnamon-satin);
+            }
           }
         }
 
@@ -812,6 +828,10 @@
       
       &.pa-project-card-1 .pa-card-content { padding-block-end: var(--padding); }
       &.pa-project-card-2 .pa-card-content { order: 1; }
+      .project-name {
+        cursor: pointer;
+        &:is(:hover, :focus-visible) { transform: none; }
+      }
     }
     }
 
@@ -995,6 +1015,16 @@
     .pa-more-action-toggle {
       background: var(--charcoal);
     }
+    .modal-content {
+      background: var(--raisin-black);
+    }  
+    .pa-project .pa-container .pa-grid-list .pa-project-card .pa-card-title .trigger {
+      color: var(--cultured);
+    }
+    .close-button {
+      background-color: var(--cultured);
+      color: var(--black-coral);
+    }
     @media (min-width: 992px) {
 .pa-header .pa-container .pa-navbar .pa-navbar-list .pa-navbar-link {
     color: var(--cultured);
@@ -1151,3 +1181,73 @@
   padding: 5px;
   cursor: pointer;
   }
+
+  iframe {
+    width: 100%;
+    height: calc(100% - 1rem);
+  }
+
+  .modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    .iframe-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50px,-50px);
+      font-size: 50px;
+      color: var(--cinnamon-satin);
+      animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    }
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    padding: 1rem 1.5rem;
+    width: calc(70%);
+    height: 75%;
+    border-radius: 0.5rem;
+}
+.close-button {
+  width: 2rem;
+  line-height: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+
+  background-color: var(--black-coral);
+  color:  var(--cultured);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  right: -6px;
+  top: -7px;
+  font-size: 21px;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
