@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary tags  -->
-    <title>Agathiyan - I'm User Interface Angular Developer.</title>
-    <meta name="title" content="Agathiyan - I'm User Interface Angular Developer.">
-    <meta name="description" content="This is a personal portfolio made by Agathiyan">
+  <!-- Primary tags  -->
+  <title>Agathiyan - I'm the User Interface Angular Developer.</title>
+  <meta name="title" content="Agathiyan - I'm the User Interface Angular Developer.">
+  <meta name="description" content="This is a personal portfolio made by Agathiyan">
 
-    <!-- favicon  -->
-    <link rel="shortcut icon" href="./assets/images/agathiyan-logo-black-small.png" type="image/svg+xml">
+  <!-- favicon  -->
+  <link rel="shortcut icon" href="./assets/images/agathiyan-logo-black-small.png" type="image/svg+xml">
 
-    <!-- google icons  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- google icons  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- google font link -->
+  <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
@@ -24,32 +25,36 @@
   <!-- custom css link -->
   <link rel="stylesheet" href="./assets/scss/styles.css">
 
-     <!-- preload images -->
+  <!-- preload images -->
   <link rel="preload" as="image" href="./assets/images/agathiyan-image.png">
   <link rel="preload" as="image" href="./assets/images/Blog.svg">
   <!-- jquery  -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
   <!-- toaster  -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 </head>
+
 <body class="pa-custom-scroll">
-  
-    <!-- Header Section  -->
+
+  <!-- Header Section  -->
 
   <header class="pa-header" data-header>
     <div class="pa-container">
 
       <a href="#" class="pa-logo">
-        <img src="./assets/images/agathiyan-logo-only-short.png" width="64" height="24" alt="Agathiyan home" title="Agathiyan">
+        <img src="./assets/images/agathiyan-logo-only-short.png" width="64" height="24" alt="Agathiyan home"
+          title="Agathiyan">
       </a>
 
       <nav class="pa-navbar" data-navbar>
 
         <div class="pa-navbar-top">
           <a href="#" class="pa-logo">
-            <img src="./assets/images/agathiyan-logo-black-short.png" width="64" height="24" alt="Agathiyan home" title="Agathiyan">
+            <img src="./assets/images/agathiyan-logo-black-short.png" width="64" height="24" alt="Agathiyan home"
+              title="Agathiyan">
           </a>
 
           <button class="pa-nav-close-btn" aria-label="close menu" data-nav-toggler>
@@ -118,24 +123,25 @@
         </ul>
 
         <div class="pa-more-action-body">
-          <button  class="pa-more-action-toggle-icon clickedbtnWidth">
+          <button class="pa-more-action-toggle-icon clickedbtnWidth">
             <ion-icon name="ellipsis-vertical-outline" aria-hidden="true"></ion-icon>
           </button>
           <ul class="pa-more-action-toggle">
+            <em class="material-icons md-48 tomato more-popup-close" onclick="toggleMoreAction(event)">close</em>
             <li class="pa-theme-container-body">
-                <div class="pa-theme-container" >
-                  <div class="pa-theme-board">
-                      <div class="pa-theme-switch">
-                          <div class="pa-theme-button">
-                          </div>
-                      </div>
+              <div class="pa-theme-container">
+                <div class="pa-theme-board">
+                  <div class="pa-theme-switch">
+                    <div class="pa-theme-button">
+                    </div>
                   </div>
+                </div>
               </div>
               <div class="pa-theme-change-txt">Change Theme</div>
             </li>
             <li class="pa-cursor-container-body">
               <div class="button r" id="button-3">
-                <input type="checkbox" class="checkbox  toggleButton" />
+                <input type="checkbox" class="checkbox toggleButton" />
                 <div class="knobs"></div>
                 <div class="layer"></div>
               </div>
@@ -152,10 +158,10 @@
       <div class="pa-overlay" data-nav-toggler data-overlay></div>
       <div style="display:none" id="once-popup">
         <div class="inner">
-            <div id="popup-close" style="color: rgb(255, 42, 42)">×</div>
-                <h2>You can Enable/Disable Magic cursor here</h2>
+          <div id="popup-close" style="color: rgb(255, 42, 42)">×</div>
+          <h2>You can Enable/Disable Magic cursor here</h2>
         </div>
-    </div>
+      </div>
     </div>
   </header>
 
@@ -184,7 +190,9 @@
             </h1>
 
             <p class="pa-section-text" data-reveal="top" data-reveal-delay="0.75s">
-              Hello! I'm Agathiyan, an user interface Angular developer based in Chennai. I have 2+ years of experience developing systems, interfaces, and technological solutions to make the web a better place. I am dedicated to writing and refactoring clean, reusable, and scalable code in Angular.
+              Hello! I'm Agathiyan, an user interface Angular developer based in Chennai. I have 2+ years of experience
+              developing systems, interfaces, and technological solutions to make the web a better place. I am dedicated
+              to writing and refactoring clean, reusable, and scalable code in Angular.
             </p>
 
             <div class="pa-btn-wrapper" data-reveal="top" data-reveal-delay="1s">
@@ -217,8 +225,8 @@
 
               <p class="pa-section-text">
                 Building responsive web app with self-contained, reusable, and
-testable modules and components. Cooperating with the back-end developer in the process of building
-the RESTful API
+                testable modules and components. Cooperating with the back-end developer in the process of building
+                the RESTful API
               </p>
             </div>
 
@@ -290,13 +298,14 @@ the RESTful API
               <div class="pa-about-card">
 
                 <div class="pa-card-icon">
-                  <img src="./assets/images/icon-1.svg" width="52" height="52" loading="lazy" alt="Web Development icon">
+                  <img src="./assets/images/icon-1.svg" width="52" height="52" loading="lazy"
+                    alt="Web Development icon">
                 </div>
 
                 <h3 class="pa-h4 pa-card-title">Web Development</h3>
 
                 <p class="pa-card-text">
-                 Developing responsive web pages from UI design in Angular HTML, SCSS. Integrated with HTTP service.
+                  Developing responsive web pages from UI design in Angular HTML, SCSS. Integrated with HTTP service.
                 </p>
 
               </div>
@@ -306,7 +315,8 @@ the RESTful API
               <div class="pa-about-card">
 
                 <div class="pa-card-icon">
-                  <img src="./assets/images/icon-2.svg" width="52" height="52" loading="lazy" alt="Web Development icon">
+                  <img src="./assets/images/icon-2.svg" width="52" height="52" loading="lazy"
+                    alt="Web Development icon">
                 </div>
 
                 <h3 class="pa-h4 pa-card-title">Mobile Development</h3>
@@ -395,13 +405,14 @@ the RESTful API
                     <button class="trigger" title="Go to the page">
                       <ion-icon name="arrow-redo-outline"></ion-icon>
                     </button>
-                    </h3>
+                  </h3>
 
                   <p class="pa-card-text">
                     Copy version of dating app for dogs created using HTML, CSS and Bootstrap
                   </p>
 
-                  <a href="https://github.com/be-bees/doglove" target="_blank" class="pa-btn-text" style="color: #a07cc5">
+                  <a href="https://github.com/be-bees/doglove" target="_blank" class="pa-btn-text"
+                    style="color: #a07cc5">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -425,16 +436,17 @@ the RESTful API
                   <p class="pa-card-tag" style="color: #3f78e0">Web Development</p>
 
                   <h3 class="pa-h3 pa-card-title">
-                    <span class="project-name"  title="Open in popup">Resume V2.0</span>
-                    <button class="trigger"  title="Go to the page">
+                    <span class="project-name" title="Open in popup">Resume V2.0</span>
+                    <button class="trigger" title="Go to the page">
                       <ion-icon name="arrow-redo-outline"></ion-icon>
                     </button>
-                    </h3>
+                  </h3>
                   <p class="pa-card-text">
                     Portfolio of myself. There you can see my skills, Education. etc..
                   </p>
 
-                  <a href="https://github.com/be-bees/agathiyan" target="_blank" class="pa-btn-text" style="color: #3f78e0">
+                  <a href="https://github.com/be-bees/agathiyan" target="_blank" class="pa-btn-text"
+                    style="color: #3f78e0">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -458,16 +470,17 @@ the RESTful API
                   <p class="pa-card-tag" style="color: #7cb798">Web Development</p>
 
                   <h3 class="pa-h3 pa-card-title">
-                    <span class="project-name"  title="Open in popup">Simple Dice Game</span>
-                    <button class="trigger"  title="Go to the page">
+                    <span class="project-name" title="Open in popup">Simple Dice Game</span>
+                    <button class="trigger" title="Go to the page">
                       <ion-icon name="arrow-redo-outline"></ion-icon>
                     </button>
-                    </h3>
+                  </h3>
                   <p class="pa-card-text">
                     It's a Small type of dice game created using HTML, CSS and JavaScript
                   </p>
 
-                  <a href="https://github.com/be-bees/dicegame" target="_blank" class="pa-btn-text" style="color: #7cb798">
+                  <a href="https://github.com/be-bees/dicegame" target="_blank" class="pa-btn-text"
+                    style="color: #7cb798">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -491,16 +504,17 @@ the RESTful API
                   <p class="pa-card-tag" style="color: #d16b86">Web Development</p>
 
                   <h3 class="pa-h3 pa-card-title">
-                    <span class="project-name"  title="Open in popup">Resume V1.0</span>
-                    <button class="trigger"  title="Go to the page">
+                    <span class="project-name" title="Open in popup">Resume V1.0</span>
+                    <button class="trigger" title="Go to the page">
                       <ion-icon name="arrow-redo-outline"></ion-icon>
                     </button>
-                    </h3>
+                  </h3>
                   <p class="pa-card-text">
                     Webpage of my profile is created using only HTML.
                   </p>
 
-                  <a href="https://github.com/be-bees/resume" target="_blank" class="pa-btn-text" style="color: #d16b86">
+                  <a href="https://github.com/be-bees/resume" target="_blank" class="pa-btn-text"
+                    style="color: #d16b86">
                     <span class="pa-span">See Project</span>
 
                     <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
@@ -519,13 +533,13 @@ the RESTful API
           </ul>
 
         </div>
-<div class="modal">
-    <div class="modal-content">
-        <span class="close-button">×</span>
-        <iframe src="" frameborder="0" allowfullscreen></iframe>
-        <i class="material-icons md-48 tomato iframe-loader"  style="display: none;">refresh</i>
-    </div>
-</div>
+        <div class="modal">
+          <div class="modal-content">
+            <span class="close-button">×</span>
+            <iframe src="" frameborder="0" allowfullscreen></iframe>
+            <em class="material-icons md-48 tomato iframe-loader" style="display: none;">refresh</em>
+          </div>
+        </div>
 
       </section>
 
@@ -557,20 +571,24 @@ the RESTful API
 
             </div>
 
-            <form class="pa-contact-form" data-reveal="right" id="emailForm" action="mailto:agathiyannv@gmail.com" method="GET" target="_blank">
+            <form class="pa-contact-form" data-reveal="right" id="emailForm" action="mailto:agathiyannv@gmail.com"
+              method="GET" target="_blank">
 
               <div class="pa-input-wrapper">
-                <input type="text" name="name" placeholder="Name *" id="name" required class="pa-input-field" autocomplete="off">
+                <input type="text" name="name" placeholder="Name *" id="name" required class="pa-input-field"
+                  autocomplete="off">
 
-                <input type="email" name="email_address" placeholder="Email *" id="email" required class="pa-input-field" autocomplete="off">
+                <input type="email" name="email_address" placeholder="Email *" id="email" required
+                  class="pa-input-field" autocomplete="off">
               </div>
 
-              <textarea name="message" placeholder="Message *" required class="pa-input-field pa-textarea" id="message" autocomplete="off"></textarea>
+              <textarea name="message" placeholder="Message *" required class="pa-input-field pa-textarea" id="message"
+                autocomplete="off"></textarea>
 
               <button type="submit" class="pa-btn pa-btn-secondary">Send message</button>
 
             </form>
-            
+
           </div>
 
         </div>
@@ -635,10 +653,11 @@ the RESTful API
 
 
   <script src="./assets/js/index.js"></script>
-  <script  type="module" src="./assets/js/magic.js"></script>
-  
+  <script type="module" src="./assets/js/magic.js"></script>
+
   <!-- ionicon link -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

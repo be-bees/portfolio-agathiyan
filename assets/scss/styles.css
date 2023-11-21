@@ -1,7 +1,7 @@
 :root {
   /**
-   * colors
-   */
+     * colors
+     */
   --white: hsla(0, 0%, 100%, 1);
   --white_a8: hsla(0, 0%, 100%, 0.08);
   --white_a12: hsla(0, 0%, 100%, 0.12);
@@ -16,8 +16,8 @@
   --gunmetal: hsla(214, 15%, 21%, 1);
   --charcoal: hsla(219, 22%, 26%, 1);
   /**
-   * typography
-   */
+     * typography
+     */
   --ff-manrope: "Manrope", sans-serif;
   --fs-1: calc(2.7rem + 1.38vw);
   --fs-2: calc(2.6rem + .66vw);
@@ -29,24 +29,24 @@
   --fs-8: 1.4rem;
   --fw-700: 700;
   /**
-   * spacing
-   */
+     * spacing
+     */
   --section-padding: 90px;
   /**
-   * box shadow
-   */
+     * box shadow
+     */
   --shadow-1: 0 0 20px hsla(216, 14%, 14%, 0.05);
   --shadow-2: 0 4px 28px hsla(216, 14%, 14%, 0.07);
   /**
-   * border radius
-   */
+     * border radius
+     */
   --radius-circle: 50%;
   --radius-pill: 100px;
   --radius-8: 8px;
   --radius-6: 6px;
   /**
-   * transition
-   */
+     * transition
+     */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease;
   --transition-3: 0.3s ease-in-out;
@@ -143,8 +143,8 @@ body.pa-nav-active {
 }
 
 /*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
+    #REUSED STYLE
+  \*-----------------------------------*/
 .pa-container {
   padding-inline: 16px;
 }
@@ -321,7 +321,7 @@ body.pa-nav-active {
 .pa-header .pa-container .pa-navbar.active .pa-more-action-body {
   margin: 0;
   position: absolute;
-  top: 78%;
+  top: calc(100% - 170px);
 }
 .pa-header .pa-container .pa-navbar.active .pa-more-action-body .pa-more-action-toggle-icon {
   color: var(--white);
@@ -400,6 +400,16 @@ body.pa-nav-active {
   margin: 5px;
   pointer-events: all;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.pa-more-action-toggle .more-popup-close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 50%;
+  font-size: 14px;
+  background-color: var(--black-coral);
+  color: var(--cultured);
+  cursor: pointer;
 }
 
 .pa-hero {
@@ -610,8 +620,8 @@ body.pa-nav-active {
 }
 
 /**
-* responsive for large than 575px screen
-*/
+ * responsive for large than 575px screen
+ */
 @media (min-width: 575px) {
   .pa-container {
     max-width: 540px;
@@ -619,14 +629,14 @@ body.pa-nav-active {
     margin-inline: auto;
   }
   /**
-  * PROJECT
-  */
+   * PROJECT
+   */
   .pa-project-card {
     --padding: 68px;
   }
   /**
-  * CONTACT
-  */
+   * CONTACT
+   */
   .pa-contact-card {
     padding: 68px;
   }
@@ -642,8 +652,8 @@ body.pa-nav-active {
     --fs-5: 2rem;
   }
   /**
-  * ABOUT
-  */
+   * ABOUT
+   */
   .pa-about .pa-grid-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -684,12 +694,12 @@ body.pa-nav-active {
   }
 }
 /**
-* responsive for large than 992px screen
-*/
+ * responsive for large than 992px screen
+ */
 @media (min-width: 992px) {
   /**
-  * CUSTOM PROPERTY
-  */
+   * CUSTOM PROPERTY
+   */
   :root {
     /**
      * spacing
@@ -703,8 +713,8 @@ body.pa-nav-active {
     max-width: 960px;
   }
   /**
-  * HEADER
-  */
+   * HEADER
+   */
   .pa-header {
     top: 45px;
     max-width: 960px;
@@ -748,7 +758,8 @@ body.pa-nav-active {
     color: var(--charcoal);
     font-size: 1.8rem;
   }
-  .pa-header .pa-container .pa-navbar .pa-wrapper, .pa-header .pa-container .pa-navbar .pa-theme-change-txt {
+  .pa-header .pa-container .pa-navbar .pa-wrapper,
+  .pa-header .pa-container .pa-navbar .pa-theme-change-txt {
     display: none;
   }
   .pa-header .pa-container .pa-nav-open-btn {
@@ -772,8 +783,8 @@ body.pa-nav-active {
     justify-content: flex-start;
   }
   /**
-  * ABOUT
-  */
+   * ABOUT
+   */
   .pa-about .pa-wrapper {
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -827,21 +838,21 @@ body.pa-nav-active {
  */
 @media (min-width: 1200px) {
   /**
-  * REUSED STYLE
-  */
+   * REUSED STYLE
+   */
   .pa-container,
   .pa-header {
     max-width: 1140px;
   }
   /**
-  * ABOUT
-  */
+   * ABOUT
+   */
   .pa-about .pa-grid-list {
     gap: 50px;
   }
   /**
-  * CONTACT
-  */
+   * CONTACT
+   */
   .pa-contact-card {
     gap: 150px;
   }
@@ -864,8 +875,8 @@ body.pa-nav-active {
     --fs-5: 2.4rem;
   }
   /**
-  * ABOUT
-  */
+   * ABOUT
+   */
   .pa-about .pa-wrapper {
     gap: 100px;
   }
@@ -933,7 +944,10 @@ body.pa-nav-active {
   background-color: var(--raisin-black);
   color: var(--snow);
 }
-[data-theme=dark] .pa-h1, [data-theme=dark] .pa-h2, [data-theme=dark] .pa-h3, [data-theme=dark] .pa-h4 {
+[data-theme=dark] .pa-h1,
+[data-theme=dark] .pa-h2,
+[data-theme=dark] .pa-h3,
+[data-theme=dark] .pa-h4 {
   color: var(--cultured);
 }
 [data-theme=dark] .pa-contact .pa-contact-card {
@@ -963,6 +977,10 @@ body.pa-nav-active {
 }
 [data-theme=dark] .pa-more-action-toggle {
   background: var(--charcoal);
+}
+[data-theme=dark] .pa-more-action-toggle .more-popup-close {
+  background-color: var(--cultured);
+  color: var(--black-coral);
 }
 [data-theme=dark] .modal-content {
   background: var(--raisin-black);
