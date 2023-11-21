@@ -406,7 +406,6 @@ function toggleModal(event) {
     }, 500);
   } else {
     $('.iframe-loader').hide();
-    document.body.style.overflow = '';
     return;
   }
 }
